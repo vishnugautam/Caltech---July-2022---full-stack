@@ -1,0 +1,34 @@
+primitive data types: 8 types
+
+1. logical - boolean
+boolean x = true;
+boolean y = false;
+boolean v = 0; // error 
+
+2. Textual - char 
+char c = 'A';
+Textual - String (class) --- it is in java.lang 
+String s1 = "Hello world"; // pool for memory reduction purpose 
+String s2 = "Hello world"; 
+String s1 = new String("Bad practice");
+String s2 = new String("Bad practice");
+
+3. Integral - byte(1) - 8 bits, short(2) - 16 bits, int(4) - 32 bits, and long(8) - 64 bits
+decimal form - 2
+octal form - 077
+hexadecimal - 0xBAAC
+default is int 
+
+4. Floating - double(4) - 32 bits, and float(8) - 64 bits 
+3.14 default is double 
+3.14F; for floating with suffixing with F
+float x = 3.14; // gives an error because it is a double
+float x = 3.14F; 
+
+Widenning - converting a lower datatype to a higher datatype this is implicit
+char c = 'f';
+int v = c; // so ASCII value of f is 70 
+
+Narrowing - converting a higher datatype to a lower datatype this is explicit 
+int v = 70;
+char c = (char) v; // F which is the ASCII value of 70
