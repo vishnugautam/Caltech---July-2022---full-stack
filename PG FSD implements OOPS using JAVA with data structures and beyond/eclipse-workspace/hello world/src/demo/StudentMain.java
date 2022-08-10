@@ -5,7 +5,7 @@ class Student{
 	String studentName;
 	
 	Student(int reg_no, String name){
-		this.registerNumber = reg_no;
+		this.registerNumber = reg_no; 
 		this.studentName = name;
 	}
 }
