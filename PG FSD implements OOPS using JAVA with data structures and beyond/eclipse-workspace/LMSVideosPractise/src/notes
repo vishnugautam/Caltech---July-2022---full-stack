@@ -41,12 +41,79 @@ max = 10
 default = 5
 
 
+Demon thread:
+service provider threads 
+to just provide services to the user threads 
+priority level - low
+examples are - garbage collection, finalizer 
 
 
+Thread scheduling and sleeping: its all about,
+how you think JVM should know which thread to run first?
+How do i identify the next thread to run?
+1. Deciding which one to run first
+2. Arranging in a way so that i can pick thread
+Scheduling is a set of programs or algorithms using which the JVM decides which one to pick first 
+1. pre-emptive - before a thread finishes, it is given to another
+2. time slicing - every thread will be given some time after that JVM stores all context and go to next thread 
+
+how to put a thread to sleep state for some time?
+Advantage is that JVM can be given to somebody else
+overloaded methods, 
+public static void sleep(long milisec)
+throws InterruptedException
+public static void sleep(long milisec, int nanos)
+throws InterruptedException
 
 
+Thread synchronization:
+how to ensure the data is not messed up when multiple threads are accessing common resource  
+1. To prevent thread interference 
+2. To prevent consistency problem 
+
+Syncorinized method: 
+when it is invoked, it locks the object and release it once the task is completed
+synchronized void printing(int n, String s)  // until printing is done it wont let other object to access it 
+unless it is finished it wont give control to others 
+
+Static Synchronized method:
+it will lock the class not the object 
+synchonized sttatic void printing(int numbers) 
+
+Inter thread communication:
+- also called cooperation
+-synchronized threads communicate with each other - like wait(), notify(), notifyAll()
+
+Interrupt a thread: stopping that guy in the middle
+- JVM can be given to other thread only when thread goes to sleep state 
+When interrupt() on a thread in sleeping or waiting state, breaks out the sleeping or waiting state and throws InterruptedException 
+It interrupts a thread from sleeping or waiting state 
+public void interrupt()
+public static boolean interrupted()
+public boolean isInterrupted() - it gives true for non sleeping threads but it never interrupts that thread
+
+Wrapper classes:
+int, float, double - are primitive datatypes
+wrapper classes can turn the datatypes into objects 
+also get many functions tied to it
+primitive datatypes - wrapper class
+boolean - Boolean
+char - Character
+byte - Byte
+short - Short
+int - Integer
+long - Long
+float - Float
+double - Double 
+
+char a = 'a';
+Integer b = new Integer(132); // it is a wrapper object rather than primitive datatype
 
 
+Autoboxing - converting primitives into object datatypes
+Unboxing - converting datatypes into primitives 
+Integer x = new Integer(540);
+int a = x;
 
 
 
