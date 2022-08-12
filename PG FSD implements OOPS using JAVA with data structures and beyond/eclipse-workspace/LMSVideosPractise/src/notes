@@ -1,0 +1,55 @@
+Multitasking - multiple programs running parallelly - it is an illusion shows that it runs parallelly
+but processors run only one at a time - so called Multitasking using process - but the problem here is 
+when we divide tasks into process, each having its own memory - so when we move from youtube to another app
+context switching happens - switch from one process to other and it has to remember where it stops to get back to the same 
+portion it stopped earlier - they are heavy weighted, theu contain their own memory and not share any memory cross - not  as fast as threading
+
+Multitasking using threads - instead of creating multiple processes why not create multiple subprocess inside a process 
+multiple subprocesses inside one single process 
+all of these subprocess shared single memory which is part of that process, they do not have independent memory of own 
+so, even if one thread got stopped the other thread runs independently 
+
+concept of multithreading or multitasking using process is running multiple programs at the same time or concurrent processing or paralle corssing
+
+Threads:light weight process - sub process which executes as a seperate program - which is ued to execute multiple tasks simultaneously 
+
+thread will have shared memory vs process will have individual memory 
+threads run inside a process
+execution is faster
+memory intensive 
+
+how to run programs parallelly? 
+
+example - when you take a program and lets say there are 4 or 5 functions in it which we can call tasks also 
+each of these tasks can be executed simultaneously using threading concept 
+
+Thread life cycle:
+new 
+runnable - ready to run
+waiting/sleeping/blocking - it is just waiting  
+running - actually when it runs
+terminated 
+
+Thread priority:
+sets by default 
+or,
+public final void setPriority(int newPriority) method 
+getPriority() is to get the priority value 
+
+min priority = 0
+max = 10
+default = 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
