@@ -116,7 +116,74 @@ Integer x = new Integer(540);
 int a = x;
 
 
+collection:
+A single group of multiple objects 
+it provides an architecture so that you can store and manipulate these groups of objects 
+multiple operations like searching() sorting() insertion() manipulation() and deletion()
+provides multiple interfaces like - Set, List, Array list, Deque, Queue, Hash set 
+comes under java.util
+// concrete class - all of the classes methods are implemented and we can just use it meanwhile in 
+// abstract class we have to define the methods in the classes we inherit it into
+// abstract classes are function headers or prototype signature or function signature are written but the 
+// implementation is left to class which extends it ot inherits it 
 
+Map is like a dictionary, it is an interface 
+Instances of map represents a group of objects, each of which is associated with a key.
+One can get the object from a map using a key, and one have to use a key to put the object into the map
 
+Set interface in collection:
+Creates an abstraction of mathematical elements 
+no duplicate elements - only unique
+no ordering in sets
+E is type of elements maintained by this set
+Superinterfaces = Collection<E>, Iterable<E>
+Subinterfaces = EventSet, NavigableSet<E>, SortedSet<E>
+
+HashCode() in collection:
+returns the hash code for the input given
+it is a method of java Integer class
+by default this method returns a random integer that is unique for each instance 
+hashCode(int value) it is an inbuilt java integer class method which determines a hash code for a given int value 
+compatible with integer.HashCode() 
+
+List in collection:
+ordered data structure - ordered collection
+duplicates are permitted
+also called sequence
+E is type of elements maintained by this set
+Superinterfaces = Collection<E>, Iterable<E>
+allows you to access elements by indexing - from 0 
+List interface provides ListIterator - get elements from the list object one by one 
+from both directions left to right and vise versa - bidirectional 
+
+Queue in collection:
+order elements in First In First Out manner - FIFO
+
+Comparator interface:
+it is used to order the objects of user defined classes 
+public int compare(Object obj1, Object obj2);
+
+Deque:
+double ended queue - element insertion and removal at both ends
+used as a queue also
+no indexing 
+all part of java collection 
+
+Map:
+key value pair 
+map cannot contain duplicate keys, each key can map to at most one value 
+no ordering like sets 
+Sorted map 
+
+HashSet - like set interface
+LinkedHashSet - both hash table and linked list implementation 
+ArrayList - it is resizable not like arrays which are not resizable
+TreeSet - 
+ArrayDeque - 
+
+ForEach method:
+perform the given action for each elements of the iterable until all elements
+have been processed or the action throws an exception
+public void forEach(Consumer<? super E> action)
 
 

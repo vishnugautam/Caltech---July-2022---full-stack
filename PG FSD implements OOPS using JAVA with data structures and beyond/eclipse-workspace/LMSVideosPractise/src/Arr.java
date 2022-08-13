@@ -8,7 +8,6 @@ public class Arr {
 		
 		int arr[][] = new int[2][2]; // 2 rows and 2 columns 
 		
-
 	}
 
 }
