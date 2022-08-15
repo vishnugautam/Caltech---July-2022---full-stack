@@ -187,3 +187,18 @@ have been processed or the action throws an exception
 public void forEach(Consumer<? super E> action)
 
 
+Stream - means flow of data in java
+Makes I/O operations faster 
+makes platform independent 
+part of java.io package
+file handling done with the help of I/O stream 
+3 I/O streams:
+Standard input(System.in)
+Standard output(System.out)
+Standard error(System.err)
+
+
+Java.io.file class:
+Abstract representation of file and path name
+File class object created by passing the filename or directory name to it
+File a = new File("/usr/local/pgm/java");
