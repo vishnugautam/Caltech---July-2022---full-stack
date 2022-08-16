@@ -202,3 +202,14 @@ Java.io.file class:
 Abstract representation of file and path name
 File class object created by passing the filename or directory name to it
 File a = new File("/usr/local/pgm/java");
+
+
+Junit - unit testing framework
+Where we have to write test cases and ensure code is working for all the test cases properly 
+
+
+Logger - log4j it is open source
+Loggers, appenders, layouts - comes under core objects
+Loggers - capturing and logging data 
+Appenders - publish logging data to desired destinations 
+Layouts - formatting information in different styles 
