@@ -213,3 +213,67 @@ Loggers, appenders, layouts - comes under core objects
 Loggers - capturing and logging data 
 Appenders - publish logging data to desired destinations 
 Layouts - formatting information in different styles 
+
+
+Debugging:
+processing of identifying bugs and fixing it
+detecting bugs 
+if not able to figure out the problem put print statements in code
+
+Tracing - process to redirect any output in the java console to a trace file - a file with all traced information 
+Deployement.Trace.Level set to all gives all this levels - basic, cache, net, security, ext, liveconnect, drs 
+basic is a basic tracing level 
+0 to 5, like 0 - trace level is off, 1 is basic trace level features, 2 for network, caching and basic, 3 network, basic security, 4. network, security, basic, ext
+5 is for live connect, ext, security, network, basic, drs
+
+why log capture?
+lot of monitors can be put on the logs to assess system performance 
+even if there are any problems in code then can look at the logs to understand the problem
+write to a trace file, using java logging API
+- Debug mode means every small information will be logged
+ideally debug mode is not turned on in live system 
+we can use logged information for analysis, detect bugs, correct code, optimize, improve performance, monitoring code
+
+Log levels:
+Log level at java level is a class, level class - consists of info, warning, severe, error
+7 basic log levels and 2 special ones 
+Severe - value is 1000, Warning - 900, info - 800, config - 700, fine - 500, finer - 400, finest - 300, off, all 
+fine, finer, finest are detailed granular level 
+info - all information messages is logged - capture in a log file
+severe - message indicates serious failure - which cannot be recovered 
+Warning - it is a problem but system can run with it 
+Logger class help us to log our information
+call get Logger method to get the object, then can mention log levels 
+
+Stack trace:
+location of the exception 
+stack means from the point the code is failed or broke to the point it got called 
+with stack trace, collect all the information related to code and understand where the code have broken 
+throwable.Getstacktrace()
+print stacktrace() to print stack trace in std.out 
+each stack frame represents the name of the method, the name of the file and the source code line number 
+if log doesn't have sufficient information to debug, then the program is not robust, program which is tolerable to failure and stable enough
+only possible when proper exception handling and logging present in code 
+
+Logging:
+quick debugging - diagnose the problems much faster
+easy maintenance  
+cost and time saving - no need to put time to understand what happened in code 
+less human effort as there is every information in the log 
+using - SLF4J or Apache LOG4J
+LOG4J is open source, faster, named log hierarchy like severe, info 
+
+best practices:
+use static modifier for logger object 
+if one declares it as static then multiple objects shares the same variable 
+log4j.appender.mail = org.apache.log4j.net.SMTPAppender
+
+
+Static keyword:
+int v = 10; will get memory each time when the instance is created  
+static int v = 10; will get memory only once and retain its value  
+static methods can be called without creating instance of the class
+
+
+
+
