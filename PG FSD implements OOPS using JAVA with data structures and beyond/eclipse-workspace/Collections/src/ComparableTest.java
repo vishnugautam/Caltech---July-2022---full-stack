@@ -12,7 +12,7 @@ public class ComparableTest {
 		
 //		System.out.println(set);
 		
-		// convert collection(treeset) to array
+		// convert collection(treeSet) to array object
 		Object[] studentArray = set.toArray();
 		Student s;
 		
