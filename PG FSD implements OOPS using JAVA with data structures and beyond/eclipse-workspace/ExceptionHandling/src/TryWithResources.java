@@ -13,8 +13,12 @@ public class TryWithResources {
 //			//handle the exception 
 //		}
 		String line;
+		// the resource will be closed as soon as the try catch block is executed 
+		// A resource is an object that must be closed once your program is done using it. 
+		// For example, a File resource or a Socket connection resource.
 		try(BufferedReader br = new BufferedReader(new FileReader("FileDoesNotExist.txt")))
 		{
+//			BufferedReader br = new BufferedReader(new FileReader("FileDoesNotExist.txt"); same as putting the line here 
 			// if file is existing read the line 
 			while((line = br.readLine()) != null) {
 				System.out.println("Line =>" + line);

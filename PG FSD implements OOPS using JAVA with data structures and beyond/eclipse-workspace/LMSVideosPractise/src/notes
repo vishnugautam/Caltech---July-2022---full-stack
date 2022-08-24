@@ -269,6 +269,13 @@ if one declares it as static then multiple objects shares the same variable
 log4j.appender.mail = org.apache.log4j.net.SMTPAppender
 
 
+log4j Levels:
+code without logging is code not fit for production 
+logging is very critical 
+
+
+
+
 Static keyword:
 int v = 10; will get memory each time when the instance is created  
 static int v = 10; will get memory only once and retain its value  

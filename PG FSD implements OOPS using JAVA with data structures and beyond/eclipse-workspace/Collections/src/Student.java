@@ -1,7 +1,7 @@
 // we are going to store Student object in collection, in a set
 
 public class Student implements Comparable{
-	// Comparable interface has compareTo method which is used to compare 
+	// Comparable interface has compareTo() method which is used to compare two values 
 	public int compareTo(Object o) {
 		double f = GPA - ((Student)o).GPA;
 		if(f == 0.0) {

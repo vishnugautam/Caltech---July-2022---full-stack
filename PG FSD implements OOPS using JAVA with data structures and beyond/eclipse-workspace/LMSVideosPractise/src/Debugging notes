@@ -1,0 +1,133 @@
+Debugging:
+processing of identifying bugs and fixing it
+de - detecting bugging - bugs and fixing it 
+if not able to figure out the problem put print statements in code
+different techniques in identifying bugs ex - logs or print statements 
+if not able to figure out the problem put print statements in code 
+different pluggins also available 
+
+Tracing:
+A process to redirect any output in the java console to a trace file - a file with all traced information 
+to track how code is doing => write the outputs which is in the java console(System.out) => whatever is going on the screen, send it to the file so that one can trace later to see what is happening
+different log frameworks - SLF5J, Log4J
+deployment.trace.property to true - tracing for java plug-in and java web start can be turned on by setting this property
+deployement.Trace.Level set to all gives all levels - basic, cache, net, security, ext, liveconnect, drs 
+basic is a basic tracing level 
+0 to 5, like 0 - trace level is off, 1 is basic trace level features, 2 for network, caching and basic, 3 network, basic & security 4. network, security, basic & extension
+5 is for live connect, extension, security, network, basic, deployment rule set - drs
+
+why log capture?
+1. write to a file- trace file
+2. using java logging API to log files 
+logs helps to understand what actually caused an issue
+adv of logging is later they can put lot of monitors can be put on the logs to assess system performance 
+even if there are any problems in code then can look at the logs to understand the problem - from there it is like backward tracking
+check issue - go back to the application - fix the problem
+
+How to perform Log capture?
+- Every information logged is important 
+- certain times based on how much severe needed, one actually log information 
+- certain times one log at high level, as there is no need to debug at granular level 
+- certain times when not able to identify an issue, need to turn logs in debug mode 
+- Debug mode means every small information will be logged
+ideally debug mode is not turned on in live system as it produces lot of logs 
+we can use logged information for analysis, detect bugs, course correct code, optimize, improve performance, monitoring code, understand code 
+
+Log levels:
+Log level at java level is a class, level class - consists of info, warning, severe, error
+7 basic log levels and 2 special ones:
+Severe - value is 1000 very critical system cannot function, message indicates serious failure - which cannot be recovered, like database is down
+Warning - 900 potential problem, info - 800, config - 700, fine - 500, finer - 400, finest - 300, off - turn off logging, all means alllogging levels 
+fine, finer, finest are detailed granular level 
+fine - for minor errors - errors which are recoverable on re-try
+finer - detailed tracing information, any exception 
+finest - is like debugging very detailed
+config - it is used to message anything related to configuration messages - CPU type configured, graphics used, what is GUI, database settings, web server connections
+info - all information messages is logged - capture in a log file, used to ensure hoe the system is doing 
+Warning - it is a problem but system can run with it but has to be fixed 
+Logger class help us to log our information - to use log levels, trace levels 
+create an instance of it and start logging 
+call get Logger method to get the object, then we can mention log levels 
+
+Stack trace:
+It is location of the exception 
+code running => code breaks => stack trace
+stack means from the point the code is failed or broke to the point it got called from different methods 
+Java stack trace is an array of stack frames
+with stack trace, collect all the information related to code and understand where the code have broken 
+gets information for all the methods which invoked it
+JVM produces stack trace 
+java.lang.StackTraceEmlement, throwable.GetStacktrace() - elements in a stack trace is returned by this 
+print stacktrace() to print stack trace in std.out 
+each element represents a single stack frame
+each stack frame represents the name of the method, the name of the file and the source code line number - so that at what point your code has broken easily
+while doing stack tracing or logging, one should have sufficient information to debug
+if log doesn't have sufficient information to debug, then the program is not robust, program which is tolerable to failure and stable enough
+only possible when proper exception handling and logging present in code 
+
+why Logging?:
+quick debugging - diagnose the problems much faster
+eg: one don't know which state the system is in when issue occurs 
+easy maintenance  
+cost and time saving - no need to put time to understand what happened in code 
+less human effort as there is every information in the log 
+Logging in java, using - SLF4J or Apache LOG4J
+LOG4J is open source, faster - for other programming language also like python
+multiple appenders eg: for automation there is relevant appenders 
+supports multiple outputs of appenders for each logger 
+thread safe - only one at a time
+named log hierarchy like severe, info 
+have relevant appenders available to log into for database, files on the disk, console, syslog, log management system
+
+best practices:
+- use static modifier for logger object 
+private static final Logger log = Logger.getLogger(App.class); // multiples objects can also share the same variable 
+if one declares it as static then multiple objects shares the same variable 
+- enable log4j's internal debug logging - so enabling it to see what is happening in logging
+- do not send logs to a database table with the JDBCAppender
+can directly persist logs details into database by creating a table and setting the jdbcappender config into log4j.properties file
+instead of writing to other file send the logs to a log management service or write into a file which can provide full-text indexing and more functionality with logs
+log4j.appender.DATABASE = org.apache.log4j.jdbc.JDBCAppender;
+- never send mails on every exception 
+log4j.appender.mail = org.apache.log4j.net.SMTPAppender
+log4j.appender.mail.To = app-errors@ggnrgln.com 
+log4j.appender.mail.From = app-errors@sdgdg.com
+log4j.appender.mail.SMTPHost = mail.yourdomain.com 
+- how to send alerts for exceptions
+log4j.rootLogger = ERROR, NTEVENT
+- send logs to log management system to view it across servers - server particular for log 
+- how to suppress certain logging statements not interested in
+log4j.appender.ERROR.filter.b = org.apache.log4j.varia.LevelMatchFilter
+log4j.appender.ERROR.filter.b = LevelToMatch=true
+log4j.appender.ERROR.filter.b = AcceptOnMatch=true
+always write own appenders - user defined, custom - import org.apache.log4j.AppenderSkeleton;
+
+Log format:
+%5p - writes the level in the log like severe, info etc
+%d - writes the date in the given date-time format
+%t - writes the method name in the log  
+%c - full path absolute class name 
+%F - writes the class name in the log
+%L - writes the line number in the log
+%m%n - writes the message in the log 
+import org.apache.log4j.NDC; for:
+%x or %ndc - use diagnostics contexts to log additional fields, specific things which you want 
+- correlate log messages by web request transaction 
+put some property value
+- structured logging - log an object and properties with method 
+send to log management tools, easy to index 
+indexing is very important 
+multicolor layout - log4j.appender.stdout.conversionPattern = [%color{%-5p}] %c: %m%n
+- make good use of multiple log4j log levels and filter 
+
+
+log4j Levels:
+code without logging is code not fit for production 
+logging is very critical 
+
+
+
+
+
+
+
