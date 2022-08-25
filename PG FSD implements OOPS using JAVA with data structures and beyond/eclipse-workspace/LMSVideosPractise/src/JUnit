@@ -1,0 +1,75 @@
+Testing:
+is a process of checking functionality of an application 
+to ensure code runs according to our requirement
+
+Unit testing:
+we need to write test case, as a developer to ensure that code works as it is expected
+we write test case for each functionality/unit to check one condition at a time
+helps software developer to write proper code without any errors to avoid surprises 
+java we have junit
+unit test can be done either manually or automate
+
+Manual is writing all test cases without any tool:
+time consuming, mistakes, very routine work, 
+more people, not reliable as automation, high dependency on the people
+ 
+ Automation:
+ no time consuming - only once we write
+ very fast
+ no huge investment on labour
+ not dependent on software developer 
+ error free
+ reliable
+ easy to program
+ 
+ what is unit test?
+ small function for which we can write a test case
+ used to ensure that other code or method works as desired or not
+ responsibility of the developer than the testing team
+ JUnit is most popular
+ test cases is nothing but just a piece of code that is written to check if other codes are working correctly or not
+ In short unit testing tells us to divide our program into small codes to check little by little and find errors
+ every unit test must have - one positive case and one negative case 
+ 
+ 
+JUnit:
+testing framework - automate all test cases
+write some piece of code test it and then again write code again - little by little
+productivity
+less surprises 
+less debugging time
+less strain
+
+Regression testing - black box testing:
+a process which says that or concerned with only input and output and not the functionality
+ex: sub of 2 inputs - you just know they will give you 2 numbers and you get output but not how it is done
+we should worry about how to pass the numbers and we dont worry about how to subtract the numbers
+Helps verification of the new or altered code - checking that test doesn't change the existing code
+when we add new functionality/feature we need this test
+when a defect is fixed we need this test
+when optimization is done we need this test
+when we change the environment we need this test
+
+four components/pillars:
+1. Annotations - a metadata helps your code more readable and simple
+2. Assert - like a testing, do you believe this is true or false? 
+3. Test Suite - bundle/combine unit test cases and run together
+4. Exception test - trace the exception handling part of the code
+
+Annotations:
+a metadata helps your code more readable and simpler
+@Test - tells JUnit that the public void method which it is attached to can be run as a test case
+@BeforeEach - method to be run before each test method
+@AfterEach - after each test method
+@BeforeAll - before any of the test methods of the class gets executes
+@AfterAll - after all of the test methods of the class gets executes
+@Ignore - ignore a test case for a temporary period of time
+
+Assert class:
+like a testing, do you believe this is true or false? 
+checking something if test pass fail test cases
+void assertEquals(boolean expected, boolean actual) - checks that two primitives/objects are equal
+
+Test suite:
+bundle/combine unit test cases and run together
+need help of Annotations like @RunWith(Suite.class), @SuiteClasses(test1.class, test2.class...), @Suite.SuiteClasses({test1.class, test2.class})
